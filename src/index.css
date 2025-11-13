@@ -1,0 +1,43 @@
+.viewbox {
+  width: fit-content;
+  min-width: 60dvw;
+  min-height: fit-content;
+  position: fixed;
+  left: 50%;
+  top: 120%;
+  transform: translate(-50%, -50%);
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.closeIcon {
+  position: absolute;
+  left: 4%;
+  top: 4%;
+  scale: 1.5;
+}
+
+.listBlyat {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.createdAt {
+  font-size: 12px;
+}
+
+@media (max-width:720px) {
+  .viewbox{
+    width: fit-content;
+    min-width: 80dvw ;
+    height: fit-content;
+  }
+
+  /* .closeIcon {
+    display: none;
+  } */
+
+  .listBlyat {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
