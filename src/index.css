@@ -1,3 +1,9 @@
+nav img{
+  max-width: 2dvw !important;
+  aspect-ratio: 1/1 ;
+  object-fit: cover;
+}
+
 .viewbox {
   width: fit-content;
   min-width: 60dvw;
