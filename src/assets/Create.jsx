@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
-
+import Header from './components/Header'
+import { Link } from 'react-router-dom'
 const Create = () => {
     const [teachers, setTeachers] = useState([])
     const [subject, setSubject] = useState("")
@@ -61,25 +62,39 @@ const Create = () => {
 
     }
     return (
-        <div>
-            <form className='m-4 d-flex flex-column w-75 gap-4'>
-                <select name="" id="teachers" className='form-select' onChange={(e) => handleChange(e)}>
-                    <option value="Pilih" hidden>Pilih Guru</option>
-                    {
-                        teachers.map((t) => {
-                            return (
-                                <option key={t.id} value={t.name}>{t.name}</option>
-                            )
-                        })
-                    }
-                </select>
-                <input className='form-control' type="text" id='guru_id' value={idGuru} hidden />
-                <input className='form-control' type="text" id='subject' value={subject} hidden />
-                <input className='form-control' type="text" id='text' />
-                <button className='btn btn-primary' type="button" id='submit'
-                    onClick={() => handleSubmit()}>Kirim Data </button>
-            </form>
-        </div>
+        <>
+            <Header>
+                <div className="d-flex flex-col align-items-center justify-content-between">
+                    <div className="">
+
+                        <Link to={'/'} className='btn btn-primary'>Home</Link>
+                        <Link to={'/admin/login'} className='btn btn-primary mx-2'>Login</Link>
+                    </div>
+                    <div className="">
+                        Welcome to kotak Aspirasi
+                    </div>
+                </div>
+            </Header>
+            <div>
+                <form className='m-4 d-flex flex-column w-75 gap-4'>
+                    <select name="" id="teachers" className='form-select' onChange={(e) => handleChange(e)}>
+                        <option value="Pilih" hidden>Pilih Guru</option>
+                        {
+                            teachers.map((t) => {
+                                return (
+                                    <option key={t.id} value={t.name}>{t.name}</option>
+                                )
+                            })
+                        }
+                    </select>
+                    <input className='form-control' type="text" id='guru_id' value={idGuru} hidden />
+                    <input className='form-control' type="text" id='subject' value={subject} hidden />
+                    <input className='form-control' type="text" id='text' />
+                    <button className='btn btn-primary' type="button" id='submit'
+                        onClick={() => handleSubmit()}>Kirim Data </button>
+                </form>
+            </div>
+        </>
     )
 }
 export default Create
